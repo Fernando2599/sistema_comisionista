@@ -1,5 +1,5 @@
 <?php
-
+use App\Livewire\CreatePost;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +22,8 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
+    /*Route::get('/dashboard', function () {
         return view('dashboard');
-    })->name('dashboard');
+    })->name('dashboard');*/
+    Route::get('/dashboard', CreatePost::class)->name('dashboard');
 });
