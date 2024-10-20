@@ -22,7 +22,7 @@ return new class extends Migration
             $table->foreignId('estado_id')
                 ->constrained('estados')
                 ->onDelete('cascade')
-                ->defualt(1);
+                ->default(1);
             $table->integer('monto_pago');
             $table->timestamps();
         });
