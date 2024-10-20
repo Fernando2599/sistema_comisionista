@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('periodos', function (Blueprint $table) {
             $table->id();
+            $table->date('fecha_limite_pago');
+            $table->date('periodo_inicio');
+            $table->date('periodo_fin');
             $table->timestamps();
         });
     }

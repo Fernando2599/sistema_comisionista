@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('depositos', function (Blueprint $table) {
             $table->id();
+            $table->date('fecha_creacion');
+            $table->time('hora_creacion');
+            $table->integer('monto_deposito');
             $table->timestamps();
         });
     }

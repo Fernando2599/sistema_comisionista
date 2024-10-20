@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('recibos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('venta_id')
+                ->constrained('ventas');
+            $table->foreignId('cliente_id')
+                ->constrained('clientes');
             $table->timestamps();
         });
     }

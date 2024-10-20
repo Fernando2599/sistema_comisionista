@@ -11,17 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cortes', function (Blueprint $table) {
+        Schema::create('cliente_periodo', function (Blueprint $table) {
             $table->id();
-            $table->integer('corte_caja');
-            $table->integer('talonarios');
-            $table->integer('faltante');
-            $table->date('corte_fecha');
-            $table->time('corte_hora');
+            $table->foreignId('cliente_id')
+                ->constrained('clientes')
+                ->onDelete('cascade');
+            $table->foreignId('periodo_id')
+                ->constrained('periodos')
+                ->onDelete('cascade');
             $table->foreignId('estado_id')
                 ->constrained('estados')
                 ->onDelete('cascade')
-                ->defualt(3);
+                ->defualt(1);
+            $table->integer('monto_pago');
             $table->timestamps();
         });
     }
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cortes');
+        Schema::dropIfExists('cliente_periodo');
     }
 };
