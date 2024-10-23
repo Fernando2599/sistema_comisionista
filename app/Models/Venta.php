@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Venta extends Model
 {
     use HasFactory;
+    protected $fillable = ['fecha_cobro', 'hora_cobro'];
+
+    public function recibo() {
+        return $this->belongsTo(Recibo::class); //campos adicionales de la tabla intermedia
+    }
 }

@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('corte_deposito', function (Blueprint $table) {
+        Schema::create('corte_depositos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('corte_id')
-                ->constrained('cortes')
-                ->onDelete('cascade');
-            $table->foreignId('deposito_id')
-                ->constrained('depositos')
-                ->onDelete('cascade');
+            $table->foreignId('corte_id');
+            $table->foreignId('deposito_id');
             $table->timestamps();
         });
     }
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('corte_deposito');
+        Schema::dropIfExists('corte_depositos');
     }
 };

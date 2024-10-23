@@ -18,10 +18,7 @@ return new class extends Migration
             $table->integer('faltante');
             $table->date('corte_fecha');
             $table->time('corte_hora');
-            $table->foreignId('estado_id')
-                ->constrained('estados')
-                ->onDelete('cascade')
-                ->default(3);
+            $table->foreignId('estado_id');
             $table->timestamps();
         });
     }

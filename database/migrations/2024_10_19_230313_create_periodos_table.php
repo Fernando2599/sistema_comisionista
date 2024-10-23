@@ -16,6 +16,7 @@ return new class extends Migration
             $table->date('fecha_limite_pago');
             $table->date('periodo_inicio');
             $table->date('periodo_fin');
+            $table->foreignId('estado_id');
             $table->timestamps();
         });
     }
