@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('cliente_periodos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cliente_id');
-            $table->foreignId('periodo_id');
-            $table->foreignId('estado_id');
+            $table->foreignId('cliente_id')
+                ->constrained();
+            $table->foreignId('periodo_id')
+                ->constrained();
+            $table->foreignId('estado_id')
+                ->constrained();
             $table->integer('monto_pago');
             $table->timestamps();
         });

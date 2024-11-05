@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('corte_depositos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('corte_id');
-            $table->foreignId('deposito_id');
+            $table->foreignId('corte_id')
+                ->constrained();
+            $table->foreignId('deposito_id')
+                ->constrained();
             $table->timestamps();
         });
     }
