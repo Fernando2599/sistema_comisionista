@@ -11,11 +11,10 @@ class Clientes extends Model
     protected $fillable = ['nombre', 'ap_pat', 'ap_mat', 'numero_servicio', 'direccion'];
     
     //relacion m::m
-    public function clientesPer() {
-        return $this->belongsToMany(ClientePeriodo::class, 'cliente_periodos')
-                    ->withPivot('estado_id', 'monto_pago');  //campos adicionales de la tabla intermedia
+    public function periodos() {
+        return $this->belongsToMany(Periodos::class);  //campos adicionales de la tabla intermedia
     }
-    //relacion  m::m
+    //relacion  1::m
     public function recibo() {
         return $this->belongsTo(Venta::class, 'recibos');
     }

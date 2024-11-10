@@ -12,12 +12,10 @@ class Recibo extends Model
 
     // Relación 1:1 con Venta
     public function venta() {
-        return $this->belongsToMany(Venta::class, 'venta_id')
-                    ->withPivot('fecha_cobro', 'hora_cobro');
+        return $this->hasMany(Venta::class);
     }
-
+    //Relacion 1:1 con clientes
     public function clientes() {
-        return $this->belongsToMany(Clientes::class, 'cliente_id')
-                    ->withPivot('estado_id', 'monto_pago');  //campos adicionales de la tabla intermedia
+        return $this->hasOne(Clientes::class);  //campos adicionales de la tabla intermedia
     }
 }

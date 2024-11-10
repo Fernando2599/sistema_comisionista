@@ -17,6 +17,6 @@ class Corte extends Model
 
     //relacion inversa m::m
     public function depositos() {
-        return $this->belongsToMany(Deposito::class, 'corte_depositos');  //campos adicionales de la tabla intermedia
+        return $this->belongsToMany(Deposito::class);  //campos adicionales de la tabla intermedia
     }
 }

@@ -13,16 +13,16 @@ class ClientePeriodo extends Model
 
     // Relación 1:1 con Estados
     public function estado() {
-        return $this->belongsTo(Estado::class, 'estado_id');
+        return $this->belongsTo(Estado::class);
     }
 
     // Relación 1:1 con Cliente
-    public function cliente() {
-        return $this->belongsTo(Clientes::class, 'cliente_id');
+    public function clientes() {
+        return $this->belongsTo(Clientes::class);
     }
 
     // Relación 1:1 con Periodo
     public function periodos() {
-        return $this->belongsTo(Periodos::class, 'periodo_id');
+        return $this->belongsTo(Periodos::class);
     }
 }

@@ -12,6 +12,6 @@ class Deposito extends Model
 
     //relacion inversa m::m
     public function cortes() {
-        return $this->belongsToMany(Corte::class, 'corte_depositos'); 
+        return $this->belongsToMany(Corte::class); 
     }
 }

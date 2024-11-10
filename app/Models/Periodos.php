@@ -16,9 +16,8 @@ class Periodos extends Model
     }
 
     //relacion inversa m::m
-    public function clientesPer() {
-        return $this->belongsToMany(ClientePeriodo::class, 'cliente_periodos')
-                    ->withPivot('estado_id', 'monto_pago');  //campos adicionales de la tabla intermedia
+    public function clientes() {
+        return $this->belongsToMany(Clientes::class);  //campos adicionales de la tabla intermedia
     }
        
     
