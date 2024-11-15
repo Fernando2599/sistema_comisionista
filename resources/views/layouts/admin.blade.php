@@ -21,7 +21,9 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased" x-data = "{open : false}">
+    <body class="font-sans antialiased sm:overflow-auto" 
+        :class="{'overflow-hidden': open}"
+        x-data = "{open : false}">
         
         @include('layouts.includes.admin.nav')
 
@@ -37,6 +39,10 @@
             </div>
         </div>
   
+        <div  x-show="open" 
+            x-on:click="open = false"
+            style= "display: none" class="bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-30 sm:hidden">
+        </div>
 
         @stack('modals')
 
