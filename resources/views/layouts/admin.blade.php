@@ -14,14 +14,14 @@
         <!-- Icons font awesone -->
 
         <script src="https://kit.fontawesome.com/c80aec4459.js" crossorigin="anonymous"></script>
-
+        
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased" x-data = "{open : false}">
         
         @include('layouts.includes.admin.nav')
 
