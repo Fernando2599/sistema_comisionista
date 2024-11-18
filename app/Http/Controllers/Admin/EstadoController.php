@@ -13,7 +13,7 @@ class EstadoController extends Controller
      */
     public function index()
     {
-        $estados = Estado::all();
+        $estados = Estado::paginate();
         return view('admin.estado.index', compact('estados'));
     }
 
