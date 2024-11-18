@@ -6,6 +6,12 @@
             'active' => request()->routeIs('admin.dashboard'),
             'icon' => 'fa-solid fa-gauge-high',
         ],
+        [
+            'name' => 'Estados',
+            'url' => route('admin.estado.index'),
+            'active' => request()->routeIs('admin.estado.*'),
+            'icon' => 'fa-solid fa-hourglass-start',
+        ],
     ];
 @endphp
 
