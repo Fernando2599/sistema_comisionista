@@ -13,7 +13,8 @@ class EstadoController extends Controller
      */
     public function index()
     {
-        return view('admin.estado.index');
+        $estados = Estado::all();
+        return view('admin.estado.index', compact('estados'));
     }
 
     /**
