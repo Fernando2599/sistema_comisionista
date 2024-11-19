@@ -33,6 +33,13 @@ class EstadoController extends Controller
         $request->validate([
             'nombre_estado' => ['required','string','max:20'],
         ]);
+        session()->flash('swal',[
+
+            'icon' => 'success',
+            'title' => '! Bien hecho !',
+            'text' => 'Datos registrados exitosamente',
+    
+        ]);
 
         Estado::create($request->all());
         return redirect()->route('admin.estado.index')
