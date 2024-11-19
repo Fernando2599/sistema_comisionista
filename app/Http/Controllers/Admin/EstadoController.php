@@ -30,7 +30,13 @@ class EstadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre_estado' => ['required','string','max:20'],
+        ]);
+
+        Estado::create($request->all());
+        return redirect()->route('admin.estado.index')
+            ->with('success','El estado ha sido creado satisfactoriamente.');
     }
 
     /**

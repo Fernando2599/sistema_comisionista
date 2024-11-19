@@ -9,6 +9,8 @@ class Estado extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['nombre_estado'];
+
     //relacion 1:1
     public function clientePeriodo() {
         return $this->hasMany(ClientePeriodo::class);

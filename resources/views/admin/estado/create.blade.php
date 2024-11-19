@@ -11,6 +11,9 @@
         <form action="{{route('admin.estado.store')}}" method="POST"
             class="bg-white rounded-lg p-6 shadow-lg">
 
+            @csrf
+
+            <x-validation-errors class="mb-4"/>
             <div class="mb-4">
 
                 <x-label class="mb-3">
@@ -18,7 +21,7 @@
                 </x-label>
 
                 <x-input
-                name="estado"
+                name="nombre_estado"
                 class="w-full" 
                 placeholder="Escriba el nombre del estado"
                 />
@@ -31,7 +34,6 @@
                 </x-button-blue>
             </div>
 
-            @csrf
         </form>
     </div>
 
