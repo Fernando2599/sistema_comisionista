@@ -13,7 +13,7 @@ class EstadoController extends Controller
      */
     public function index()
     {
-        $estados = Estado::paginate();
+        $estados = Estado::paginate(10);
         return view('admin.estado.index', compact('estados'));
     }
 
@@ -33,6 +33,9 @@ class EstadoController extends Controller
         $request->validate([
             'nombre_estado' => ['required','string','max:20'],
         ]);
+
+        Estado::create($request->all());
+
         session()->flash('swal',[
 
             'icon' => 'success',
@@ -41,9 +44,7 @@ class EstadoController extends Controller
     
         ]);
 
-        Estado::create($request->all());
-        return redirect()->route('admin.estado.index')
-            ->with('success','El estado ha sido creado satisfactoriamente.');
+        return redirect()->route('admin.estado.index');
     }
 
     /**
