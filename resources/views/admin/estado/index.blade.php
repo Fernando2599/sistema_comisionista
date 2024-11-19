@@ -1,54 +1,52 @@
 <x-admin-layout>
+    <div class="card bg-white shadow-md rounded-lg overflow-hidden">
+        <!-- Card Header -->
 
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-                    <th scope="col" class="px-6 py-3">
-                        ID
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Nombre
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Creado el
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Actualizado el
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Accion
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($estados as $estado)
-                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ $estado->id }}
-                        </th>
-                        <td class="px-6 py-4">
-                            {{ $estado->nombre_estado }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $estado->created_at }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $estado->updated_at }}
-                        </td>
-                        <td class="px-6 py-4">
-                            <a href="{{route('admin.estado.show', $estado)}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"><i class="fa-solid fa-eye"></i></a>
-                            <a href="{{route('admin.estado.edit', $estado)}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"><i class="fa-solid fa-pen"></i></a>
-                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"><i class="fa-solid fa-trash-can"></i></a>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+        <div class="card-header bg-blue-200 p-4 flex justify-end items-center">
+            <x-button-link href="{{ route('admin.estado.create') }}" class="extra-class">
+                <i class="fa-solid fa-plus"></i> Nuevo
+            </x-button-link>
+        </div>
+        
+
+        <!-- Card Body -->
+        <div class="card-body p-6">
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">ID</th>
+                            <th scope="col" class="px-6 py-3">Nombre</th>
+                            <th scope="col" class="px-6 py-3">Creado el</th>
+                            <th scope="col" class="px-6 py-3">Actualizado el</th>
+                            <th scope="col" class="px-6 py-3">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($estados as $estado)
+                            <tr class="odd:bg-white even:bg-gray-50 border-b dark:border-gray-700">
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">{{ $estado->id }}</td>
+                                <td class="px-6 py-4">{{ $estado->nombre_estado }}</td>
+                                <td class="px-6 py-4">{{ $estado->created_at }}</td>
+                                <td class="px-6 py-4">{{ $estado->updated_at }}</td>
+                                <td class="px-6 py-4 flex space-x-2">
+                                    <a href="{{ route('admin.estado.show', $estado) }}" class="text-blue-600 hover:underline"><i class="fa-solid fa-eye"></i></a>
+                                    <a href="{{ route('admin.estado.edit', $estado) }}" class="text-black-custom hover:underline"><i class="fa-solid fa-pen"></i></a>
+                                    <form method="POST" action="{{ route('admin.estado.destroy', $estado) }}" onsubmit="return confirm('¿Estás seguro de eliminar este estado?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-red-600 hover:underline"><i class="fa-solid fa-trash-can"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
-    <div class= "mt-4">
+    <div class="mt-4">
         {{ $estados->links() }}
     </div>
-    
 </x-admin-layout>
