@@ -60,7 +60,8 @@ class EstadoController extends Controller
      */
     public function edit(Estado $estado)
     {
-        return view('admin.estado.edit');
+
+        return view('admin.estado.edit', compact('estado'));
     }
 
     /**
@@ -68,7 +69,20 @@ class EstadoController extends Controller
      */
     public function update(Request $request, Estado $estado)
     {
-        //
+        $request->validate([
+            'nombre_estado' => ['required','string','max:20'],
+        ]);
+
+        $estado->update($request->all());
+
+        session()->flash('swal',[
+
+            'icon' => 'success',
+            'title' => '! Bien hecho !',
+            'text' => 'Datos actualizados exitosamente',
+        ]);
+
+        return redirect()->route('admin.estado.edit', $estado);
     }
 
     /**
