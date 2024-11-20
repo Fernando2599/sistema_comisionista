@@ -90,6 +90,15 @@ class EstadoController extends Controller
      */
     public function destroy(Estado $estado)
     {
-        //
+        $estado->delete();
+
+        session()->flash('swal',[
+
+            'icon' => 'success',
+            'title' => '! Bien hecho!',
+            'text' => 'Datos eliminados exitosamente',
+        ]);
+
+        return redirect()->route('admin.estado.index');
     }
 }

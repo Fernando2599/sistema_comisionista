@@ -26,6 +26,7 @@
         
         <!-- Styles -->
         @livewireStyles
+        @stack('css')
     </head>
     <body class="font-sans antialiased sm:overflow-auto" 
         :class="{'overflow-hidden': open}"
@@ -51,7 +52,7 @@
         @stack('modals')
 
         @livewireScripts
-
+        
         @if (session('swal'))
             
             <script>
@@ -59,5 +60,6 @@
             </script>
             
         @endif
+        @stack('js')
     </body>
 </html>
