@@ -8,11 +8,11 @@ Breadcrumbs::for('dashboard', function (BreadcrumbTrail $trail) {
 });
 
 
-// Home > Administración > Estados
+// Estados
 Breadcrumbs::for('admin.estado.index', function (BreadcrumbTrail $trail) {
     $trail->push('Estados', route('admin.estado.index'));
 });
-// Home > Administración > Estados
+// Estados/(nombre del registro)
 Breadcrumbs::for('admin.estado.edit', function (BreadcrumbTrail $trail, $estado) {
     $trail->parent('admin.estado.index');
     $trail->push($estado->nombre_estado, route('admin.estado.edit', $estado->id));
