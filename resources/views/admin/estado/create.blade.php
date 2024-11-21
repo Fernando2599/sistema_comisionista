@@ -1,4 +1,5 @@
 <x-admin-layout>
+    {{ Breadcrumbs::render('admin.estado.create') }}
     <div class="card bg-white shadow-md rounded-lg overflow-hidden">
 
         <!-- Card Header -->

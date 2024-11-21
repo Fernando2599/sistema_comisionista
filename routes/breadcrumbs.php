@@ -18,3 +18,9 @@ Breadcrumbs::for('admin.estado.edit', function (BreadcrumbTrail $trail, $estado)
     $trail->push($estado->nombre_estado, route('admin.estado.edit', $estado->id));
 });
 
+// Estados/Crear
+Breadcrumbs::for('admin.estado.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.estado.index');
+    $trail->push('Crear', route('admin.estado.create'));
+});
+
