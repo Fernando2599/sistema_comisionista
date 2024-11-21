@@ -52,7 +52,7 @@ class EstadoController extends Controller
      */
     public function show(Estado $estado)
     {
-        return view('admin.estado.show');
+        return view('admin.estado.show', compact('estado'));
     }
 
     /**

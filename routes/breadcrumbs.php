@@ -23,4 +23,9 @@ Breadcrumbs::for('admin.estado.create', function (BreadcrumbTrail $trail) {
     $trail->parent('admin.estado.index');
     $trail->push('Crear', route('admin.estado.create'));
 });
+// Estados/Detalles
+Breadcrumbs::for('admin.estado.show', function (BreadcrumbTrail $trail, $estado) {
+    $trail->parent('admin.estado.index');
+    $trail->push($estado->nombre_estado, route('admin.estado.show', $estado->id));
+});
 
