@@ -12,6 +12,12 @@
             'active' => request()->routeIs('admin.estado.*'),
             'icon' => 'fa-solid fa-hourglass-start',
         ],
+        [
+            'name' => 'Roles',
+            'url' => route('admin.roles.index'),
+            'active' => request()->routeIs('admin.roles.*'),
+            'icon' => 'fa-solid fa-user-tie',
+        ],
     ];
 @endphp
 
