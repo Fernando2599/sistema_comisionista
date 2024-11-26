@@ -13,7 +13,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return view('admin.roles.index');
+        $roles = Role::all();
+        return view('admin.roles.index', compact('roles'));
     }
 
     /**
@@ -29,7 +30,19 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required','string','max:35', 'unique:roles,name'],
+        ]);
+
+        Role::create($request->all());
+
+        session()->flash('swal',[
+            'title' => 'Éxito',
+            'text' => "Rol creado correctamente",
+            'icon' => 'success',
+        ]);
+
+        return redirect()->route('admin.roles.index');
     }
 
     /**
