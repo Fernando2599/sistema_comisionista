@@ -1,8 +1,8 @@
 import './bootstrap';
-import { showDeleteAlert } from './confirmdeletion';  // Importa la función de confirmDeletion
+import { showDeleteAlert } from './modules/confirmdeletion';
 
-document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.eliminar-rol').forEach(form => {
-        showDeleteAlert(form);  // Llamada a la función con el selector
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.confirmar-eliminacion').forEach(form => {
+        showDeleteAlert(form);
     });
 });

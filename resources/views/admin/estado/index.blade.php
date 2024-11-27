@@ -34,7 +34,7 @@
                                 <td class="px-6 py-4 flex space-x-2">
                                     <a href="{{ route('admin.estado.show', $estado) }}" class="text-blue-600 hover:underline"><i class="fa-solid fa-eye"></i></a>
                                     <a href="{{ route('admin.estado.edit', $estado) }}" class="text-black-custom hover:underline"><i class="fa-solid fa-pen"></i></a>
-                                    <form method="POST" action="{{ route('admin.estado.destroy', $estado) }}" class="eliminar-estado">
+                                    <form method="POST" action="{{ route('admin.estado.destroy', $estado) }}" class="confirmar-eliminacion">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="text-red-600 hover:underline"><i class="fa-solid fa-trash-can"></i></button>
@@ -53,27 +53,7 @@
     </div>
 
     @push('js')
-    <script>
-        document.querySelectorAll('.eliminar-estado').forEach(form => {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                Swal.fire({
-                    title: "¿Estás seguro?",
-                    text: "¡No podrás revertir esto!",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#3085d6",
-                    cancelButtonColor: "#d33",
-                    confirmButtonText: "Sí, eliminar",
-                    cancelButtonText: "Cancelar"
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        this.submit();
-                    }
-                });
-            });
-        });
-    </script>
+    @vite(['resources/js/app.js'])
     @endpush
 
 </x-admin-layout>

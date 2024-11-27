@@ -35,7 +35,7 @@
                                 <td class="px-6 py-4 flex space-x-2">
                                     <a href="{{ route('admin.roles.show', $rol) }}" class="text-blue-600 hover:underline"><i class="fa-solid fa-eye"></i></a>
                                     <a href="{{ route('admin.roles.edit', $rol) }}" class="text-black-custom hover:underline"><i class="fa-solid fa-pen"></i></a>
-                                    <form method="POST" action="{{ route('admin.roles.destroy', $rol) }}" class="eliminar-rol">
+                                    <form method="POST" action="{{ route('admin.roles.destroy', $rol) }}" class="confirmar-eliminacion">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="text-red-600 hover:underline"><i class="fa-solid fa-trash-can"></i></button>
@@ -50,14 +50,7 @@
     </div>
 
     @push('js')
-    @vite(['resources/js/confirmdeletion.js'])
-    <script>
-
-        document.querySelectorAll('.eliminar-rol').forEach(form => {
-            showDeleteAlert(form);
-        });
-
-    </script>
-@endpush
+    @vite(['resources/js/app.js'])
+    @endpush
 
 </x-admin-layout>
