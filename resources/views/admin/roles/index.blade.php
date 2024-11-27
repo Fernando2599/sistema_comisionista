@@ -1,4 +1,7 @@
 <x-admin-layout>
+
+    {{ Breadcrumbs::render('admin.roles.index') }}
+
     <div class="card bg-white shadow-md rounded-lg overflow-hidden">
         <!-- Card Header -->
 
@@ -45,5 +48,16 @@
             </div>
         </div>
     </div>
+
+    @push('js')
+    @vite(['resources/js/confirmdeletion.js'])
+    <script>
+
+        document.querySelectorAll('.eliminar-rol').forEach(form => {
+            showDeleteAlert(form);
+        });
+
+    </script>
+@endpush
 
 </x-admin-layout>

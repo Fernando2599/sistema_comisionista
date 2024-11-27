@@ -1,4 +1,6 @@
 <x-admin-layout>
+
+    {{ Breadcrumbs::render('admin.roles.create') }}
     
     <div class="card bg-white shadow-md rounded-lg overflow-hidden">
 
