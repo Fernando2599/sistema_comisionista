@@ -3,11 +3,11 @@
 
     <div class="card bg-white shadow-md rounded-lg overflow-hidden">
         <!-- Card Header -->
-        <div class="card-header bg-green-200 p-2 flex justify-center items-center">
+        <x-card-header-act>
             <x-label class="mb-2">
                 DETALLES
             </x-label>
-        </div>
+        </x-card-header-act>
 
         <div class="bg-white rounded-lg p-6 shadow-lg">
             <div class="mb-4">

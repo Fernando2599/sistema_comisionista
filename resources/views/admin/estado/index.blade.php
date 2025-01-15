@@ -4,11 +4,11 @@
     <div class="card bg-white shadow-md rounded-lg overflow-hidden">
         <!-- Card Header -->
 
-        <div class="card-header bg-green-200 p-4 flex justify-end items-center">
+        <x-card-header-new>
             <x-button-link href="{{ route('admin.estado.create') }}" class="extra-class">
                 <i class="fa-solid fa-plus"></i> Nuevo
             </x-button-link>
-        </div>
+        </x-card-header-new>
         
         @if ($estados->count())
             

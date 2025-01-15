@@ -5,11 +5,11 @@
     <div class="card bg-white shadow-md rounded-lg overflow-hidden">
 
         <!-- Card Header -->
-        <div class="card-header bg-green-200 p-2 flex justify-center items-center">
+        <x-card-header-act>
             <x-label class="mb-2">
                 ACTUALIZAR ROL
             </x-label>
-        </div>
+        </x-card-header-act>
 
         <form action="{{route('admin.permissions.update', $permission)}}" method="POST"
             class="bg-white rounded-lg p-6 shadow-lg">
