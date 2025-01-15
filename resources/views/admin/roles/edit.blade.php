@@ -5,7 +5,7 @@
     <div class="card bg-white shadow-md rounded-lg overflow-hidden">
 
         <!-- Card Header -->
-        <div class="card-header bg-blue-200 p-2 flex justify-center items-center">
+        <div class="card-header bg-green-200 p-2 flex justify-center items-center">
             <x-label class="mb-2">
                 ACTUALIZAR ROL
             </x-label>

@@ -3,7 +3,7 @@
 
     <div class="card bg-white shadow-md rounded-lg overflow-hidden">
         <!-- Card Header -->
-        <div class="card-header bg-blue-200 p-2 flex justify-center items-center">
+        <div class="card-header bg-green-200 p-2 flex justify-center items-center">
             <x-label class="mb-2">
                 DETALLES
             </x-label>
@@ -26,7 +26,7 @@
         </div>
 
         <div class="flex justify-end mt-1">
-            <a href="{{ route('admin.estado.edit', $estado) }}" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+            <a href="{{ route('admin.estado.edit', $estado) }}" class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600">
                 Editar
             </a>
         </div>
