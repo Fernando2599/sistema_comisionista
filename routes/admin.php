@@ -12,6 +12,6 @@ Route::get('/', function(){
 
 Route::resource('/estado',EstadoController::class);
 
-Route::resource('roles', RoleController::class);
+Route::resource('/roles', RoleController::class);
 
-Route::resource('permissions', PermissionController::class);
+Route::resource('/permissions', PermissionController::class);

@@ -1,5 +1,5 @@
 <x-admin-layout>
-    {{ Breadcrumbs::render('admin.roles.show', $permission) }}
+    {{ Breadcrumbs::render('admin.permissions.show', $permission) }}
 
     <div class="card bg-white shadow-md rounded-lg overflow-hidden">
         <!-- Card Header -->

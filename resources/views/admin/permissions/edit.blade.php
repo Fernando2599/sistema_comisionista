@@ -1,6 +1,6 @@
 <x-admin-layout>
     
-    {{ Breadcrumbs::render('admin.roles.edit', $role) }}
+    {{ Breadcrumbs::render('admin.permissions.edit', $permission) }}
 
     <div class="card bg-white shadow-md rounded-lg overflow-hidden">
 
@@ -11,7 +11,7 @@
             </x-label>
         </div>
 
-        <form action="{{route('admin.permissions.update', $role)}}" method="POST"
+        <form action="{{route('admin.permissions.update', $permission)}}" method="POST"
             class="bg-white rounded-lg p-6 shadow-lg">
 
             @csrf
@@ -28,7 +28,7 @@
                 name="name"
                 class="w-full" 
                 placeholder="Escriba el nombre del permiso"
-                value="{{ $role->name}}"/>
+                value="{{ $permission->name}}"/>
 
             </div>
 

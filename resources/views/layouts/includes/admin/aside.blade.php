@@ -18,6 +18,12 @@
             'active' => request()->routeIs('admin.roles.*'),
             'icon' => 'fa-solid fa-user-tie',
         ],
+        [
+            'name' => 'Permisos',
+            'url' => route('admin.permissions.index'),
+            'active' => request()->routeIs('admin.permissions.*'),
+            'icon' => 'fa-solid fa-key',
+        ],
     ];
 @endphp
 
