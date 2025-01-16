@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
@@ -22,7 +23,9 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('admin.roles.create');
+        //recuperar permisos
+        $permissions = Permission::all();
+        return view('admin.roles.create', compact('permissions'));
     }
 
     /**
@@ -32,9 +35,12 @@ class RoleController extends Controller
     {
         $request->validate([
             'name' => ['required','string','max:35', 'unique:roles,name'],
+            'permissions' => 'nullable|array',
         ]);
 
-        Role::create($request->all());
+        $role = Role::create($request->all());
+        // sincronizar
+        $role->permissions()->attach($request->permissions);
 
         session()->flash('swal',[
             'title' => 'Éxito',
@@ -58,7 +64,9 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        return view('admin.roles.edit', compact('role'));
+        //recuperar permisos
+        $permissions = Permission::all();
+        return view('admin.roles.edit', compact('role', 'permissions'));
     }
 
     /**
@@ -67,10 +75,14 @@ class RoleController extends Controller
     public function update(Request $request, Role $role)
     {
         $request->validate([
-            'name' => ['required','string','max:35', 'unique:roles,name'],
+            'name' => ['required','string','max:35', 'unique:roles,name,' . $role->id],
+            'permissions' => 'nullable|array',
         ]);
 
         $role->update($request->all());
+
+        //sincronisar roles con permisos
+        $role->permissions()->sync($request->permissions);
 
         session()->flash('swal',[
             'title' => 'Éxito',

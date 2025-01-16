@@ -31,6 +31,25 @@
 
             </div>
 
+            <div class="mb-4">
+                <x-label class="mb-3">
+                    Permisos:
+                </x-label>
+            
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    @foreach ($permissions as $permission)
+                        <label class="flex items-center space-x-2">
+                            <x-checkbox 
+                                name="permissions[]" 
+                                value="{{ $permission->id }}"
+                                :checked="in_array($permission->id, old('permissions', []))"
+                                />
+                           {{ $permission->name }}
+                        </label>
+                    @endforeach
+                </div>
+            </div>
+
             <div class="flex justify-end">
                 <x-button-blue>
                     Guardar
