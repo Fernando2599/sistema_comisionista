@@ -8,6 +8,15 @@ use Illuminate\Http\Request;
 
 class EstadoController extends Controller
 {
+    public function __construct()
+    {
+        // Permiso general para acceder al módulo de Estados
+        $this->middleware(['can:Gestion De Estados']);
+
+        // Permiso específico para editar, actualizar y eliminar
+        $this->middleware(['can:Actualizar y Eliminar Estados'])->only(['edit', 'update', 'destroy']);
+
+    }
     /**
      * Display a listing of the resource.
      */
