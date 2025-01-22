@@ -24,6 +24,12 @@
             'active' => request()->routeIs('admin.permissions.*'),
             'icon' => 'fa-solid fa-key',
         ],
+        [
+            'name' => 'Usuarios',
+            'url' => route('admin.users.index'),
+            'active' => request()->routeIs('admin.users.*'),
+            'icon' => 'fa-solid fa-users',
+        ],
     ];
 @endphp
 

@@ -76,7 +76,6 @@ class RoleController extends Controller
     {
         $request->validate([
             'name' => ['required','string','max:35', 'unique:roles,name,' . $role->id],
-            'permissions' => 'nullable|array',
         ]);
 
         $role->update($request->all());
